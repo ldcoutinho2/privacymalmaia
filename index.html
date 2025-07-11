@@ -917,15 +917,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="card-header">
     <h3>Assinaturas</h3>
   </div>
+
   <div class="card-content">
     <p class="badge" style="display: block; width: fit-content">
       MAIS POPULAR 🔥🔥
     </p>
 
-    <a href="https://app.pushinpay.com.br/service/pay/9F5CB43C-72F7-4703-8BCA-C187A0752938"class="subscription-link" 
-       id="16d3656a-6cd0-a1d2-3098-41edc66eb25b"
-       onclick="fbq('track', 'InitiateCheckout');">
-      <button class="subscription-button primary-button pulse" id="2d53fd84-3e2f-31de-6d3a-3aa1d653ac1a">
+    <!-- Plano 30 dias -->
+    <a href="#" 
+       class="subscription-link" 
+       onclick="trackAndRedirect(event, 'https://app.pushinpay.com.br/service/pay/9F5CB43C-72F7-4703-8BCA-C187A0752938')">
+      <button class="subscription-button primary-button pulse">
         <b>30 DIAS</b>
         <span class="price">R$ 9,90</span>
       </button>
@@ -943,24 +945,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </svg>
       </div>
 
-      <a href="https://app.pushinpay.com.br/service/pay/9F5CBA6C-84C3-45E5-8B35-58A6FF74D429"class="subscription-link" 
-         id="d2b3b715-a69a-be74-c91c-c795b99308a0"
-         onclick="fbq('track', 'InitiateCheckout');">
-        <button class="subscription-button outline-button" id="80fd3770-0827-535a-755a-b412f4961bf5">
+      <!-- Plano 3 meses -->
+      <a href="#" 
+         class="subscription-link" 
+         onclick="trackAndRedirect(event, 'https://app.pushinpay.com.br/service/pay/9F5CBA6C-84C3-45E5-8B35-58A6FF74D429')">
+        <button class="subscription-button outline-button">
           <div class="button-left">
-            <span>3 Meses</span>
-            <span class="badge">+chamada de vídeo + whatsapp</span>
+            <span>3 MESES</span>
+            <span class="badge">+ chamada de vídeo + WhatsApp</span>
           </div>
           <span class="price highlight">R$ 19,90</span>
         </button>
       </a>
 
-      <a href="https://app.pushinpay.com.br/service/pay/9F5CBAEA-A6AC-4B6E-A640-5E94AD0094F6"class="subscription-link" 
-         onclick="fbq('track', 'InitiateCheckout');">
-        <button class="subscription-button outline-button" id="121bfd4b-aaef-8eae-3763-70fd97a3809b">
+      <!-- Plano 1 ano -->
+      <a href="#" 
+         class="subscription-link" 
+         onclick="trackAndRedirect(event, 'https://app.pushinpay.com.br/service/pay/9F5CBAEA-A6AC-4B6E-A640-5E94AD0094F6')">
+        <button class="subscription-button outline-button">
           <div class="button-left">
             <span>1 ANO</span>
-            <span class="badge">+chamada ao vivo + meu WhatsApp + vídeo diário com seu nome + conteúdo antecipado 😈📲</span>
+            <span class="badge">+ chamada ao vivo + meu WhatsApp + vídeo diário com seu nome + conteúdo antecipado 😈📲</span>
           </div>
           <span class="price highlight">R$ 69,90</span>
         </button>
@@ -968,6 +973,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </div>
+
+<!-- SCRIPT PARA DISPARAR O PIXEL E REDIRECIONAR -->
+<script>
+  function trackAndRedirect(event, url) {
+    event.preventDefault(); // Interrompe o clique imediato
+    fbq('track', 'InitiateCheckout'); // Dispara o pixel
+
+    // Aguarda um pouco e redireciona
+    setTimeout(function () {
+      window.location.href = url;
+    }, 300);
+  }
+</script>
 
       <!-- Abas de Conte�do -->
       <div class="content-tabs">
@@ -1483,6 +1501,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         });
       });
     </script>
-  
+  <script>
+  function trackAndRedirect(event, url) {
+    event.preventDefault(); // Evita que o link redirecione na hora
+
+    // Dispara o pixel
+    fbq('track', 'InitiateCheckout');
+
+    // Aguarda 300ms e redireciona
+    setTimeout(function() {
+      window.location.href = url;
+    }, 300);
+  }
+</script>
+
   
 </body></html>
